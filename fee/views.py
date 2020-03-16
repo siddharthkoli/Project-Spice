@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
 from .models import Residents
+from django.contrib.auth import login, logout, authenticate
+from django.contrib import messages
 
 # Create your views here.
 def index(request):
@@ -36,3 +38,16 @@ def signup(request):
         return render(request, 'fee/login.html')
     elif request.method == 'GET':
         return render(request, 'fee/signup.html')
+
+
+def custom_login(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'fee/success.html')
+        else:
+            messages.error(request, 'Invalid Credentials!')
+    return render(request, 'fee/login.html')
