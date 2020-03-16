@@ -34,4 +34,4 @@ class Residents(models.Model):
     multipleFlats = models.BooleanField(default=False)
 
     def __str__(self):
-        return self.user
+        return str(self.user)

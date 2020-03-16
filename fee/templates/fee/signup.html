@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+</head>
+
+<body>
+    <form action="" , method="POST">
+        {% csrf_token %}
+        <label for="username">Enter Username:</label>
+        <input type="text" name="username" id="username" placeholder="Username">
+        <br><br>
+        <label for="password">Enter Password:</label>
+        <input type="password" name="password" id="password" placeholder="Password">
+        <br><br>
+        <label for="email">Enter email:</label>
+        <input type="text" name="email" id="email">
+        <br><br>
+        <label for="firstname">Enter Firstname:</label>
+        <input type="text" name="firstname" id="firstname" placeholder="Firstname">
+        <label for="lastname">Enter Lastname:</label>
+        <input type="text" name="lastname" id="lastname" placeholder="lastname">
+        <br><br>
+        <label for="phone">Enter Phone Number</label>
+        <input type="text" name="phone" id="phone" placeholder="phone">
+        <br><br>
+        <label for="isOwner">Are you the owner of the flat?</label>
+        <input type="checkbox" name="isOwner" id="isOwner" onclick="checkIsOwner()">
+        <br><br>
+        <label for="multipleFlats">Do you own multiple flats?</label>
+        <input type="checkbox" name="multipleFlats" onclick="changeState()" id="multipleFlats">
+        <br><br>
+        <div id="divFlat1">
+            <label for="flatNo1">Enter your Flat No:</label>
+            <input type="text" name="flatNo1" id="flatNo1" placeholder="Flat No">
+        </div>
+        <br><br>
+        <div id="divFlat2" style="visibility: hidden;">
+        <label for="flatNo2">Enter your second Flat No:</label>
+        <input type="text" name="flatNo2" id="flatNo2" placeholder="Second Flat No">
+        </div>
+        <br><br>
+        <br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+<script src="{% static 'fee/js/signup.js' %}"></script>
+<script src="{% static 'fee/js/jquery.js' %}"></script>
+
+</html>
