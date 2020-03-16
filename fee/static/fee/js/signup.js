@@ -1,3 +1,14 @@
+$('#password, #confirm_password').on('keyup',function () {
+    if($('#password').val() != $('#confirm_password').val())
+    {
+        $('#validation_msg').html('Passwords do not match!');
+    }
+    else
+    {
+        $('#validation_msg').html('');
+    }
+});
+
 function checkIsOwner()
 {
     checkbox = document.getElementById("isOwner");

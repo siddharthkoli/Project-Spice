@@ -17,6 +17,10 @@
         <label for="password">Enter Password:</label>
         <input type="password" name="password" id="password" placeholder="Password">
         <br><br>
+        <label for="confirm_password">Re-enter password:</label>
+        <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm Password">
+        <label id="validation_msg"></label>
+        <br><br>
         <label for="email">Enter email:</label>
         <input type="text" name="email" id="email">
         <br><br>
@@ -48,7 +52,7 @@
         <button type="submit">Submit</button>
     </form>
 </body>
-<script src="{% static 'fee/js/signup.js' %}"></script>
 <script src="{% static 'fee/js/jquery.js' %}"></script>
+<script src="{% static 'fee/js/signup.js' %}"></script>
 
 </html>
