@@ -11,17 +11,17 @@ class Migration(migrations.Migration):
 
     operations = [
         migrations.AddField(
-            model_name='residents',
+            model_name='resident',
             name='multipleFlats',
             field=models.BooleanField(default=False),
         ),
         migrations.AlterField(
-            model_name='residents',
+            model_name='resident',
             name='flatNo1',
             field=models.CharField(max_length=5),
         ),
         migrations.AlterField(
-            model_name='residents',
+            model_name='resident',
             name='flatNo2',
             field=models.CharField(max_length=5),
         ),

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Residents
+from .models import Resident
 
 # Register your models here.
-admin.site.register(Residents)
+admin.site.register(Resident)

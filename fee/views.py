@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from .models import Residents
+from .models import Resident
 from django.contrib.auth import login, logout, authenticate
 from django.contrib import messages
 
@@ -33,8 +33,8 @@ def signup(request):
         flatNo2 = request.POST.get('flatNo2')
         #print(isOwner, multipleFlats)
         user = User.objects.create_user(username=username, password=password)
-        residents = Residents(user=user, email=email, firstname=firstname, lastname=lastname, phone=phone, isOwner=isOwner, multipleFlats=multipleFlats, flatNo1=flatNo1, flatNo2=flatNo2)
-        residents.save()
+        resident = Resident(user=user, email=email, firstname=firstname, lastname=lastname, phone=phone, isOwner=isOwner, multipleFlats=multipleFlats, flatNo1=flatNo1, flatNo2=flatNo2)
+        resident.save()
         return render(request, 'fee/login.html')
     elif request.method == 'GET':
         return render(request, 'fee/signup.html')

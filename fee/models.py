@@ -20,7 +20,7 @@ from django.contrib.auth.models import User
 #     ("14", "14"), 
 # ) 
 
-class Residents(models.Model):
+class Resident(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     email = models.EmailField(default='example@gmail.com')
     #flatNo1 = models.IntegerField(default=0, choices=FLAT_CHOICES)
