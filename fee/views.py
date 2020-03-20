@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from .models import Resident
 from django.contrib.auth import login, logout, authenticate
@@ -51,3 +51,18 @@ def custom_login(request):
         else:
             messages.error(request, 'Invalid Credentials!')
     return render(request, 'fee/login.html')
+
+
+def check_username(request):
+    if request.method == 'GET':
+        username = request.GET.get('username')
+        data = {
+            "is_taken" : User.objects.filter(username__iexact=username).exists()
+        }
+        if data["is_taken"]:
+            data["error_message"] = "This username is already taken!"
+        else:
+            data["success_message"] = "Username available!"
+        return JsonResponse(data)
+    else:
+        return JsonResponse({"request_error" : 'Something went wrong!'})

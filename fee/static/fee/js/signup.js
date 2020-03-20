@@ -1,3 +1,27 @@
+$("#username").change(function() {
+    var username = $(this).val();
+
+    $.ajax({
+        type : 'GET',
+        url : '/usernamevalidation',
+        data : {
+            "username" : username,
+        },
+        dataType : 'json',
+        success : function(result) {
+            if (result.is_taken){
+                $("#username_validation").html(result.error_message);
+            }
+            else {
+                $("#username_validation").html(result.success_message);
+            }
+        },
+        error : function (result) {
+            $("#username_validation").html(result.request_error)
+        }
+    });
+});
+
 $('#password, #confirm_password').on('keyup',function () {
     if($('#password').val() != $('#confirm_password').val())
     {
