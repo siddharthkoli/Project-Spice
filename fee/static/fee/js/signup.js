@@ -1,60 +1,64 @@
-$("#username").change(function() {
+$("#username").change(function () {
     var username = $(this).val();
 
     $.ajax({
-        type : 'GET',
-        url : '/usernamevalidation',
-        data : {
-            "username" : username,
+        type: 'GET',
+        url: '/usernamevalidation',
+        data: {
+            "username": username,
         },
-        dataType : 'json',
-        success : function(result) {
-            if (result.is_taken){
+        dataType: 'json',
+        success: function (result) {
+            if (result.is_taken) {
                 $("#username_validation").html(result.error_message);
             }
             else {
                 $("#username_validation").html(result.success_message);
             }
         },
-        error : function (result) {
+        error: function (result) {
             $("#username_validation").html(result.request_error)
         }
     });
 });
 
-$('#password, #confirm_password').on('keyup',function () {
-    if($('#password').val() != $('#confirm_password').val())
-    {
+$('#password, #confirm_password').on('keyup', function () {
+    if ($('#password').val() != $('#confirm_password').val()) {
         $('#validation_msg').html('Passwords do not match!');
     }
-    else
-    {
+    else {
         $('#validation_msg').html('');
     }
 });
 
-function checkIsOwner()
-{
+function checkIsOwner() {
     checkbox = document.getElementById("isOwner");
-    if (checkbox.checked)
-    {
+    if (checkbox.checked) {
         checkbox.value = 'True';
         console.log(checkbox.value);
     }
 
 }
 
-function changeState()
-{
+$("#phone").change(function () {
+    //console.log($(this).val());
+    var phone = $(this).val();
+    if ((phone.length == 10) && isNaN(phone) == false) {
+        $("#phone_validation").html("");
+    }
+    else {
+        $("#phone_validation").html("Please enter a valid phone number!");
+    }
+});
+
+function changeState() {
     checkbox = document.getElementById("multipleFlats");
-    if(checkbox.checked)
-    {
+    if (checkbox.checked) {
         console.log("TRUE");
         checkbox.value = 'True';
         $('#divFlat2').css('visibility', 'visible');
     }
-    else
-    {
+    else {
         console.log("FALSE");
         checkbox.value = 'False';
         $('#divFlat2').css('visibility', 'hidden');

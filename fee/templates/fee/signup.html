@@ -23,7 +23,7 @@
         <label id="validation_msg"></label>
         <br><br>
         <label for="email">Enter email:</label>
-        <input type="text" name="email" id="email">
+        <input type="text" name="email" id="email" placeholder="someone@example.com">
         <br><br>
         <label for="firstname">Enter Firstname:</label>
         <input type="text" name="firstname" id="firstname" placeholder="Firstname">
@@ -32,6 +32,7 @@
         <br><br>
         <label for="phone">Enter Phone Number</label>
         <input type="text" name="phone" id="phone" placeholder="phone">
+        <label id="phone_validation"></label>
         <br><br>
         <label for="isOwner">Are you the owner of the flat?</label>
         <input type="checkbox" name="isOwner" id="isOwner" onclick="checkIsOwner()">
@@ -45,15 +46,16 @@
         </div>
         <br><br>
         <div id="divFlat2" style="visibility: hidden;">
-        <label for="flatNo2">Enter your second Flat No:</label>
-        <input type="text" name="flatNo2" id="flatNo2" placeholder="Second Flat No">
+            <label for="flatNo2">Enter your second Flat No:</label>
+            <input type="text" name="flatNo2" id="flatNo2" placeholder="Second Flat No">
         </div>
         <br><br>
         <br><br>
         <button type="submit">Submit</button>
     </form>
 </body>
-<script src="{% static 'fee/js/jquery.js' %}"></script>
+<!-- <script src="{% static 'fee/js/jquery.js' %}"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="{% static 'fee/js/signup.js' %}"></script>
 
 </html>
