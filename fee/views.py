@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse, JsonResponse
 from django.contrib.auth.models import User
 from .models import Resident
@@ -35,7 +35,8 @@ def signup(request):
         user = User.objects.create_user(username=username, password=password)
         resident = Resident(user=user, email=email, firstname=firstname, lastname=lastname, phone=phone, isOwner=isOwner, multipleFlats=multipleFlats, flatNo1=flatNo1, flatNo2=flatNo2)
         resident.save()
-        return render(request, 'fee/login.html')
+        #return render(request, 'fee/login.html')
+        return redirect('/login')
     elif request.method == 'GET':
         return render(request, 'fee/signup.html')
 

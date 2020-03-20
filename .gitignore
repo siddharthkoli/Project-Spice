@@ -2,3 +2,7 @@
 /spice/*
 *.vs
 *.vscode
+fee/migrations/__init__.py
+fee/migrations/0001_initial.py
+fee/migrations/0002_auto_20200315_2321.py
+db.sqlite3
