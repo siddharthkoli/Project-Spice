@@ -35,7 +35,7 @@ function checkIsOwner() {
     checkbox = document.getElementById("isOwner");
     if (checkbox.checked) {
         checkbox.value = 'True';
-        console.log(checkbox.value);
+        //console.log(checkbox.value);
     }
 
 }
@@ -54,13 +54,17 @@ $("#phone").change(function () {
 function changeState() {
     checkbox = document.getElementById("multipleFlats");
     if (checkbox.checked) {
-        console.log("TRUE");
+        //console.log("TRUE");
         checkbox.value = 'True';
         $('#divFlat2').css('visibility', 'visible');
+        $('#flat_1').html("Enter your first flat no:");
+        $("#flatNo1").attr("placeholder", "First flat no:");
     }
     else {
-        console.log("FALSE");
+        //console.log("FALSE");
         checkbox.value = 'False';
         $('#divFlat2').css('visibility', 'hidden');
+        $('#flat_1').html("Enter your flat no:");
+        $("#flatNo1").attr("placeholder", "Your flat no:");
     }
 }
