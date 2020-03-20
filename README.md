@@ -1,6 +1,7 @@
 # Project-Spice
 
 ### A project to digitally maintain "Society Maintainance Fee/Charge" records.
+*This project  will be on Heroku as soon as it's ready.*
 
 ## To run this project:
 - ### [Make sure you have **Git** installed!](https://git-scm.com/downloads)
